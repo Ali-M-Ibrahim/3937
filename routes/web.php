@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
-
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\InvokableController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -102,5 +104,17 @@ Route::get('fff1',[
 Route::post('my-post',[FirstController::class,'post']);
 
 
+//to create a resource controller use:
+// php artisan make:controller CONTROLLER_NAME --resource
+Route::resource('student',ResourceController::class);
+Route::resource('student2',ResourceController::class)
+->only(['index','create'])
+;
 
+Route::resource('student3',ResourceController::class)
+    ->except(['index'])
+;
 
+Route::apiResource('my-api',ApiController::class);
+
+Route::get('invoke',InvokableController::class);
