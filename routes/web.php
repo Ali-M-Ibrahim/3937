@@ -5,6 +5,7 @@ use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokableController;
+use App\Http\Controllers\DataController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -118,3 +119,46 @@ Route::resource('student3',ResourceController::class)
 Route::apiResource('my-api',ApiController::class);
 
 Route::get('invoke',InvokableController::class);
+
+
+Route::get('create1',[DataController::class,'create1']);
+Route::get('getCustomer/{id}',[DataController::class,'getCustomerById']);
+Route::get('getCredentialsById/{id}',[DataController::class,'getCredentialsById']);
+Route::get('getAddressById/{id}',[DataController::class,'getAddressById']);
+Route::get('getServiceById/{id}',[DataController::class,'getServiceById']);
+
+Route::get('getAllCustomers',[DataController::class,'getAllCustomers']);
+Route::get('getCustomerByFirstName/{fname}',[DataController::class,'getCustomerByFirstName']);
+Route::get('getCustomerByFirstName1/{fname}',[DataController::class,'getCustomerByFirstName1']);
+Route::get('getCustomerByFnameAndLname',[DataController::class,'getCustomerByFnameAndLname']);
+Route::get('getCustomersAfter2024',[DataController::class,'getCustomersAfter2024']);
+
+Route::get('findCustomerById/{id}',[DataController::class,'findCustomerById']);
+Route::get('findCustomerById2/{id}',[DataController::class,'findCustomerById2']);
+Route::get('getCustomerByFirstName2/{id}',[DataController::class,'getCustomerByFirstName2']);
+Route::get('getCustomerByFirstName3/{id}',[DataController::class,'getCustomerByFirstName3']);
+
+
+
+Route::get('getCustomerByLastnameOrDob',[DataController::class,'getCustomerByLastnameOrDob']);
+Route::get('getCustomerIn',[DataController::class,'getCustomerIn']);
+Route::get('getCustomerBetween',[DataController::class,'getCustomerBetween']);
+Route::get('getIbrahimCusomers',[DataController::class,'getIbrahimCusomers']);
+Route::get('statistics',[DataController::class,'statistics']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
