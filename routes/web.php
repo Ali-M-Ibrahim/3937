@@ -6,6 +6,13 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\CrudController;
+use App\Http\Controllers\ViewController;
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -145,6 +152,29 @@ Route::get('getCustomerIn',[DataController::class,'getCustomerIn']);
 Route::get('getCustomerBetween',[DataController::class,'getCustomerBetween']);
 Route::get('getIbrahimCusomers',[DataController::class,'getIbrahimCusomers']);
 Route::get('statistics',[DataController::class,'statistics']);
+
+
+Route::get("createm1",[CrudController::class,"createm1"]);
+Route::get("createm2",[CrudController::class,"createm2"]);
+Route::post("createm3",[CrudController::class,"createm3"]);
+Route::post("createm4",[CrudController::class,"createm4"]);
+Route::get("createm5",[CrudController::class,"createm5"]);
+Route::get("updatem1/{id}",[CrudController::class,"updatem1"]);
+Route::post("updatem2/{id}",[CrudController::class,"updatem2"]);
+Route::get("massUpdate",[CrudController::class,"massUpdate"]);
+
+
+Route::get("delete/{id}",[CrudController::class,"delete"]);
+
+
+Route::get("massDelete",[CrudController::class,"massDelete"]);
+
+
+Route::get("first-view",[ViewController::class,"index"]);
+Route::get("second-view",[ViewController::class,"index2"]);
+Route::get("viewCustomer",[ViewController::class,"viewCustomer"]);
+Route::get("listCustomer",[ViewController::class,"listCustomer"]);
+
 
 
 
