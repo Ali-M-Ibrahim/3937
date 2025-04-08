@@ -9,6 +9,9 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\ViewController;
 
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemResourceController;
+
 
 
 
@@ -176,18 +179,32 @@ Route::get("viewCustomer",[ViewController::class,"viewCustomer"]);
 Route::get("listCustomer",[ViewController::class,"listCustomer"]);
 
 
+Route::get("create-item",[ItemController::class,"create"])
+->name("create");
+Route::get("list-item",[ItemController::class,"list"])
+->name("list");
+Route::post("save-item",[ItemController::class,"save"])
+->name("save");
+
+Route::get("show-item/{id}",[ItemController::class,"show"])
+    ->name("show");
+
+Route::get("delete-item/{id}",[ItemController::class,"delete"])
+->name("delete");
+
+Route::delete("delete-item2/{id}",[ItemController::class,"delete"])
+    ->name("delete2");
+
+Route::get("edit-item/{id}",[ItemController::class,"edit"])
+    ->name("edit");
+Route::put("update-item/{id}",[ItemController::class,"update"])
+    ->name("update");
 
 
+Route::resource("myitem",ItemResourceController::class);
 
-
-
-
-
-
-
-
-
-
+Route::get("deleteitem/{id}",[ItemResourceController::class,"destroy"])
+->name("deletefromresource");
 
 
 
