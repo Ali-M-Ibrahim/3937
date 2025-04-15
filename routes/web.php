@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
@@ -208,4 +210,10 @@ Route::get("deleteitem/{id}",[ItemResourceController::class,"destroy"])
 
 
 
+Route::get("addImage",[ImageController::class,"addImage"]);
+Route::get("displayImage/{id}",[ImageController::class,"displayImage"])->name("displayImage");
+Route::post("addImage",[ImageController::class,"store"])->name("store-image");
 
+
+Route::get("about",[WebsiteController::class, "about"]);
+Route::get("contact",[WebsiteController::class, "contact"]);
