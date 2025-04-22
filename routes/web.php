@@ -13,6 +13,9 @@ use App\Http\Controllers\ViewController;
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ItemResourceController;
+use App\Http\Controllers\AuthenticationController;
+
+
 
 
 
@@ -182,7 +185,7 @@ Route::get("listCustomer",[ViewController::class,"listCustomer"]);
 
 
 Route::get("create-item",[ItemController::class,"create"])
-->name("create");
+->name("create")->middleware('check');
 Route::get("list-item",[ItemController::class,"list"])
 ->name("list");
 Route::post("save-item",[ItemController::class,"save"])
@@ -217,3 +220,24 @@ Route::post("addImage",[ImageController::class,"store"])->name("store-image");
 
 Route::get("about",[WebsiteController::class, "about"]);
 Route::get("contact",[WebsiteController::class, "contact"]);
+
+
+Route::get("register",[AuthenticationController::class,'register']);
+Route::get("login",[AuthenticationController::class,'login'])
+->name("login");
+Route::post("dologin",[AuthenticationController::class,'dologin'])
+->name("dologin");
+Route::get("checkUser",[AuthenticationController::class,'checkUser']);
+Route::get("logout",[AuthenticationController::class,'logout'])
+->name("logout");
+
+
+
+Route::middleware(['check'])->group(function () {
+    Route::get('/check1', function () {
+        return "check 1";
+    });
+    Route::get('check2', function () {
+        return "check 2";
+    });
+});

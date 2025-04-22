@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class ItemController extends Controller
+class ItemController extends Controller implements HasMiddleware
 {
+    public static function middleware(): array
+    {
+        return [
+            'check',
+            'admin'
+        ];
+    }
     public function create(){
         return View("addItem");
     }
@@ -16,7 +25,7 @@ class ItemController extends Controller
 
         $pass = Hash::make("123");
         $check = Hash::check("14423",$pass);
-        return $check;
+
 
 
 
