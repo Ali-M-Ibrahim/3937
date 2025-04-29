@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DIController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
@@ -241,3 +242,13 @@ Route::middleware(['check'])->group(function () {
         return "check 2";
     });
 });
+
+
+Route::get("before-di",[DIController::class,"beforedi"]);
+Route::get("method-di",[DIController::class,"methoddi"]);
+Route::get("method-di1",[DIController::class,"dic1"]);
+Route::get("method-di2",[DIController::class,"dic2"]);
+
+
+
+
